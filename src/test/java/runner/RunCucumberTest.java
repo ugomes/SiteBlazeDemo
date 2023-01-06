@@ -15,15 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
         tags = {},
         glue = {"steps"}
 )
-public class RunCucumberTest {
-
-    public static WebDriver driver;
-
-       @BeforeClass
-    public static void start(){
-      driver = new ChromeDriver();
-      driver.manage().window().maximize();
-       }
+public class RunCucumberTest extends RunBase {
 
     @AfterClass
     public static void stop(){

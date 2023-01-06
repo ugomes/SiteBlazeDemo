@@ -2,18 +2,15 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import runner.RunCucumberTest;
 import support.Utils;
 
-public class LoginPage extends Utils {
+public class LoginPage extends RunCucumberTest {
 
-    WebDriver driver;
-
-    public LoginPage(WebDriver driver){
-        this.driver = driver;
-    }
-        public void acessarTelaLogin(){
-            driver.get("https://blazedemo.com/register");
-            esperarElementoEstarPresente(By.id("password-confirm"),10);
+    public void acessarTelaLogin(){
+            getDriver().manage().window().maximize();
+            getDriver().get("https://blazedemo.com/register");
+            Utils.esperarElementoEstarPresente(By.id("password-confirm"),10);
 
         }
 

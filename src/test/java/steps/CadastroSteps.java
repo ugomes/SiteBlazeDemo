@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CadastroSteps extends RunCucumberTest {
 
-    CadastroPage cadastroPage = new CadastroPage(driver);
+    CadastroPage cadastroPage = new CadastroPage();
     @Quando("^preencho o formulario$")
     public void preencho_o_formulario()  {
         cadastroPage.preecherNome("Moacir");
@@ -24,7 +24,7 @@ public class CadastroSteps extends RunCucumberTest {
 
 
     }
-        ClickPage clickPage = new ClickPage(driver);
+        ClickPage clickPage = new ClickPage();
     @Quando("^clico em registrar$")
     public void clico_em_registrar()  {
         clickPage.clicarNoBotaoRegister();
@@ -33,11 +33,9 @@ public class CadastroSteps extends RunCucumberTest {
 
     @Entao("^aparece a frase Page Expired$")
     public void aparece_a_frase_Page_Expired ()  {
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        String resultado_atual = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]")).getText();
+        getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        String resultado_atual = getDriver().findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]")).getText();
         Assert.assertEquals("Page Expired",resultado_atual);
-
-
    }
 
 }

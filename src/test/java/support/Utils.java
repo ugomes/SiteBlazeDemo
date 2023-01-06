@@ -8,8 +8,8 @@ import runner.RunCucumberTest;
 import java.util.Random;
 
 public class Utils extends RunCucumberTest {
-    public void esperarElementoEstarPresente(By element, int tempo){
-        WebDriverWait wait = new WebDriverWait(driver,tempo);
+    public static void esperarElementoEstarPresente(By element, int tempo){
+        WebDriverWait wait = new WebDriverWait(getDriver(),tempo);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
     public String getRandomEmail(){
